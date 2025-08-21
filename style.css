@@ -18,3 +18,30 @@
   background: rgba(0, 200, 255, 0.25);     /* highlight hover */
   color: #fff;                             /* text makin jelas saat hover */
 }
+
+/* Animasi masuk */
+body {
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+body.fade-in {
+  opacity: 1;
+}
+
+/* Animasi keluar */
+body.fade-out {
+  opacity: 0;
+}
+
+/* Animasi goyang logo */
+.wiggle {
+  animation: wiggle 3s infinite ease-in-out;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(3deg) scale(1.05); }
+  50% { transform: rotate(-3deg) scale(1.05); }
+  75% { transform: rotate(2deg) scale(1.02); }
+}
