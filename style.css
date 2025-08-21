@@ -1,35 +1,20 @@
-/* Animasi masuk */
-body {
-  opacity: 0;
-  transition: opacity 0.6s ease;
-}
-
-body.fade-in {
-  opacity: 1;
-}
-
-/* Animasi keluar */
-body.fade-out {
-  opacity: 0;
-}
-
-
 .service-list li {
-  background: rgba(255, 255, 255, 0.1); /* transparan biar nyatu */
-  backdrop-filter: blur(8px);            /* efek kaca */
-  color: #fff;                           /* biar tulisan putih */
+  background: rgba(255, 255, 255, 0.08);   /* lebih soft biar elegan */
+  backdrop-filter: blur(10px);             /* efek kaca lebih halus */
+  -webkit-backdrop-filter: blur(10px);     /* support Safari */
+  color: #f1f1f1;                          /* putih soft biar gak terlalu terang */
   padding: 15px 20px;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 500;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35); /* bayangan lebih smooth */
+  transition: all 0.3s ease;
+  cursor: pointer;                         /* kasih hint bisa diklik */
 }
 
 .service-list li:hover {
-  transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
-  background: rgba(0, 200, 255, 0.2); /* highlight pas hover */
-
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
+  background: rgba(0, 200, 255, 0.25);     /* highlight hover */
+  color: #fff;                             /* text makin jelas saat hover */
 }
-
