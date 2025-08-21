@@ -1,65 +1,67 @@
-@keyframes pulse {
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.07); }
-  100% { transform: scale(1.05); }
+.service-list li {
+  background: rgba(255, 255, 255, 0.1); /* transparan biar nyatu */
+  backdrop-filter: blur(8px);            /* efek kaca */
+  color: #fff;                           /* biar tulisan putih */
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Animasi masuk */
-body {
+.service-list li:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  background: rgba(0, 200, 255, 0.2); /* highlight pas hover */
+}
+
+.service-list li {
+  background: rgba(255, 255, 255, 0.1); /* transparan biar nyatu */
+  backdrop-filter: blur(8px);            /* efek kaca */
+  color: #fff;                           /* biar tulisan putih */
+  padding: 15px 20px;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* animasi pas load */
   opacity: 0;
-  transition: opacity 0.6s ease;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s ease forwards;
 }
 
-body.fade-in {
-  opacity: 1;
+/* biar tiap item masuknya ga barengan */
+.service-list li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.service-list li:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.service-list li:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.service-list li:nth-child(4) {
+  animation-delay: 0.8s;
 }
 
-/* Animasi keluar */
-body.fade-out {
-  opacity: 0;
+/* hover effect */
+.service-list li:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+  background: rgba(0, 200, 255, 0.2); /* highlight pas hover */
 }
 
-/* Animasi goyang logo */
-.wiggle {
-  animation: wiggle 3s infinite ease-in-out;
-}
-
-@keyframes wiggle {
-  0%, 100% { transform: rotate(0deg) scale(1); }
-  25% { transform: rotate(3deg) scale(1.05); }
-  50% { transform: rotate(-3deg) scale(1.05); }
-  75% { transform: rotate(2deg) scale(1.02); }
-}
-
-@keyframes fadeUp {
+/* keyframes buat animasi masuk */
+@keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
   to {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.service-list li {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  color: #f1f1f1;
-  padding: 15px 20px;
-  border-radius: 12px;
-  font-size: 1.05rem;
-  font-weight: 500;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
-.service-list li:hover {
-  transform: translateY(-6px) scale(1.05);
-  box-shadow: 0 8px 22px rgba(0,0,0,0.55);
-  background: rgba(0, 200, 255, 0.25);
-  color: #fff;
-  animation: pulse 0.4s ease;
 }
