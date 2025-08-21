@@ -11,6 +11,28 @@
     />
   </head>
   <body class="bg-gray-950 text-white flex flex-col min-h-screen">
+
+      <script>
+    // Efek fade-in saat halaman load
+    window.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    // Efek fade-out pas klik link
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        // Cek biar cuma untuk link internal/external biasa
+        if (this.target !== "_blank" && this.href) {
+          e.preventDefault();
+          document.body.classList.remove("fade-in");
+          document.body.classList.add("fade-out");
+          setTimeout(() => {
+            window.location.href = this.href;
+          }, 600); // match sama transition CSS
+        }
+      });
+    });
+  </script>
     
     <!-- Hero Section -->
     <header class="relative h-[80vh] flex flex-col items-center justify-center text-center">
