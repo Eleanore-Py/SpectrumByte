@@ -65,3 +65,45 @@
     transform: translateY(0);
   }
 }
+
+/* Chat Messages Container */
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* Bubble pesan user (kanan) */
+.user-msg {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #00bcd4, #00e5ff); /* cyan gradient sesuai tema */
+  color: white;
+  padding: 10px 14px;
+  border-radius: 18px 18px 0 18px;
+  max-width: 75%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Bubble pesan bot (kiri) */
+.bot-msg {
+  align-self: flex-start;
+  background-color: #2a2a2a; /* abu gelap sesuai tema */
+  color: #e0e0e0;
+  padding: 10px 14px;
+  border-radius: 18px 18px 18px 0;
+  max-width: 75%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Animasi muncul perlahan */
+.user-msg, .bot-msg {
+  animation: fadeIn 0.3s ease-out;
+}
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
