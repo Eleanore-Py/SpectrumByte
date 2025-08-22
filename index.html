@@ -20,7 +20,42 @@
        alt="Laptop Service" 
        class="absolute inset-0 w-full h-full object-cover opacity-30"/>
   <div class="relative z-10 flex flex-col items-center">
-    <h1 class="text-6xl font-extrabold text-cyan-400 drop-shadow-lg animate-bounce [animation-duration:5s]">SPECTRUM.BYTE</h1>
+    <h1 class="text-6xl font-extrabold text-cyan-400 soft-glow float-anim">
+  SPECTRUM.BYTE
+</h1>
+
+<style>
+  .soft-glow {
+    text-shadow: 0 0 4px #00ffff80, 
+                 0 0 8px #00ffff60;
+  }
+
+  /* Animasi glow + gerak */
+  .float-anim {
+    animation: soft-pulse 4s infinite alternate, floaty 6s ease-in-out infinite;
+  }
+
+  @keyframes soft-pulse {
+    from {
+      text-shadow: 0 0 4px #00ffff80, 
+                   0 0 8px #00ffff60;
+    }
+    to {
+      text-shadow: 0 0 6px #00ffffaa, 
+                   0 0 12px #00ffff80;
+    }
+  }
+
+  @keyframes floaty {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-10px) rotate(1deg);
+    }
+  }
+</style>
+
     <p class="mt-4 text-2xl text-gray-200">Service Laptop & Ponsel</p>
     <p class="mt-2 text-4xl font-semibold text-gray-200">Solusi Dari Keluhan Anda</p>
     <div class="mt-20 flex justify-center">
