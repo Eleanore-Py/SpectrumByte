@@ -97,13 +97,27 @@
 </footer>
 
 <!-- Chatbot Floating -->
-<div id="chatbot" class="fixed bottom-6 right-6 z-50">
-  <button id="chat-toggle" class="bg-cyan-500 hover:bg-cyan-600 text-white p-4 rounded-full shadow-lg">💬</button>
+<div id="chatbot" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
 
+  <!-- Label Customer Service -->
+  <div class="bg-cyan-600 text-white text-sm font-bold px-3 py-1 rounded-lg shadow-lg 
+              animate-pulse relative">
+    <span class="drop-shadow-[0_0_8px_#22d3ee] animate-bounce [animation-duration:3s]">
+      SpectrumByte Customer Service
+    </span>
+  </div>
+
+  <!-- Chat Icon -->
+  <button id="chat-toggle" 
+    class="bg-cyan-500 hover:bg-cyan-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce [animation-duration:7s]">
+    💬
+  </button>
+
+  <!-- Chat Window -->
   <div id="chat-window" class="hidden bg-gray-900 text-white w-[500px] h-[500px] rounded-2xl shadow-xl flex flex-col overflow-hidden">
     <!-- Header + Close Button -->
     <div class="bg-cyan-600 p-3 flex items-center">
-        <span class="flex-1 text-center font-bold">SpectrumByte Customer Service</span>
+        <span class="flex-1 text-center font-bold rounded-full shadow-lg animate-bounce [animation-duration:7s]">SpectrumByte Customer Service</span>
         <button id="chat-close" class="text-white font-bold px-2 py-1 hover:text-gray-200">✖</button>
     </div>
 
@@ -118,12 +132,13 @@
   </div>
 </div>
 
+
+
 <!-- PapaParse -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 
 <!-- Chatbot Script -->
 <script>
-// Elements
 const toggleBtn = document.getElementById("chat-toggle");
 const chatWindow = document.getElementById("chat-window");
 const closeBtn = document.getElementById("chat-close");
@@ -133,15 +148,15 @@ const messages = document.getElementById("chat-messages");
 
 let dataset = [];
 
-// Load CSV dataset
+// Load CSV
 Papa.parse("faq_dataset.csv", {
   download: true,
   header: true,
-  complete: function(results) { dataset = results.data; console.log("Dataset loaded:", dataset); },
-  error: function(err){ console.error("Gagal load CSV:", err); }
+  complete: res => dataset = res.data,
+  error: err => console.error("Gagal load CSV:", err)
 });
 
-// Bubble chat style function
+// Bubble chat
 function addMessage(text, sender="bot"){
   const div = document.createElement("div");
   div.classList.add(sender==="bot" ? "bot-msg" : "user-msg");
@@ -150,49 +165,40 @@ function addMessage(text, sender="bot"){
   messages.scrollTop = messages.scrollHeight;
 }
 
-// Cari jawaban terdekat
+// Cari jawaban
 function findClosestAnswer(msg){
   msg = msg.toLowerCase();
-  let bestMatch = {score:0, answer:"Maaf, saya belum paham pertanyaan itu 😊"};
+  let best = {score:0, answer:"Maaf, saya belum paham pertanyaan itu 😊"};
   dataset.forEach(item=>{
     const wordsMsg = msg.split(" ");
     const wordsQ = item.question.toLowerCase().split(" ");
     const matchCount = wordsMsg.filter(w => wordsQ.includes(w)).length;
     const score = matchCount / Math.max(wordsMsg.length, wordsQ.length);
-    if(score > bestMatch.score) bestMatch = {score, answer:item.answer};
+    if(score > best.score) best = {score, answer:item.answer};
   });
-  return bestMatch.answer;
+  return best.answer;
 }
 
-// Kirim pesan
+// Kirim
 function sendMessage(){
   const text = input.value.trim();
   if(!text) return;
-
-  addMessage(text, "user");
-
-  setTimeout(()=>{
-    const reply = findClosestAnswer(text);
-    addMessage(reply, "bot");
-  },300);
-
+  addMessage(text,"user");
+  setTimeout(()=> addMessage(findClosestAnswer(text),"bot"),300);
   input.value="";
 }
 
-// Event listeners
+// Event
 sendBtn.addEventListener("click", sendMessage);
-input.addEventListener("keypress",(e)=>{ if(e.key==="Enter") sendMessage(); });
+input.addEventListener("keypress", e=>{ if(e.key==="Enter") sendMessage(); });
 toggleBtn.addEventListener("click", ()=>{
   chatWindow.classList.toggle("hidden");
-
-  // Sambutan otomatis
-  if(!chatWindow.classList.contains("hidden") && messages.innerHTML.trim() === ""){
-    const greeting = dataset.find(item => item.topic && item.topic.toLowerCase() === "sapa");
-    if(greeting) addMessage(greeting.answer, "bot");
+  if(!chatWindow.classList.contains("hidden") && messages.innerHTML.trim()===""){
+    const greeting = dataset.find(i=> i.topic && i.topic.toLowerCase()==="sapa");
+    if(greeting) addMessage(greeting.answer,"bot");
   }
 });
 closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
-
 </script>
 
 <!-- Bubble Chat CSS -->
@@ -205,11 +211,11 @@ closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
   padding: 8px;
 }
 
-/* User bubble (kanan) */
+/* User bubble */
 .user-msg {
   align-self: flex-end;
-  background: linear-gradient(135deg, #019bac, #019bac);
-  color: rgb(255, 255, 255);
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  color: white;
   padding: 10px 14px;
   border-radius: 18px 18px 0 18px;
   max-width: 75%;
@@ -218,7 +224,7 @@ closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
   animation: fadeIn 0.3s ease-out;
 }
 
-/* Bot bubble (kiri) */
+/* Bot bubble */
 .bot-msg {
   align-self: flex-start;
   background-color: #3e4041;
@@ -236,8 +242,5 @@ closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
   to {opacity: 1; transform: translateY(0);}
 }
 </style>
-
-
-
 </body>
 </html>
