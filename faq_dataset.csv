@@ -199,7 +199,11 @@ question,answer,topic
 
 "hp saya layarnya pecah, bisa diperbaiki?","Bisa kak 😊, untuk keluhan layar pecah kita bisa bantu ganti tempred glass dan pergantian LCD tergantung bagian yang rusak. Untuk info lebih lanjut terkait dengan biaya dll bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻😁.","layar_lcd"
 "layar saya rusak kak","Baik untuk keluhan layar rusak kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
-"layar saya pecah kak kira kira berapa ya biayanya?","Baik kak 😊, untuk keluhan layar pecah kita bisa bantu ganti tempred glass dan pergantian LCD tergantung bagian yang rusak, Untuk info lebih lanjut bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻😁","layar_lcd"
+"layar saya pecah","Baik kak 😊, untuk keluhan layar pecah kita bisa bantu ganti tempred glass dan pergantian LCD tergantung bagian yang rusak, Untuk info lebih lanjut bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻😁","layar_lcd"
+"layar hp saya mati","Baik untuk keluhan layar mati kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
+"layar mati","Baik untuk keluhan layar mati kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
+"layar tidak bisa hidup","Baik untuk keluhan layar mati kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
+"hp saya layarnya mati","Baik untuk keluhan layar mati kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
 "LCD Pecah","Baik untuk keluhan layar rusak kami perlu observasi terlebih dahulu kak agar bisa kami identifikasi detail kerusakan","layar_lcd"
 "berapa biayanya?","Untuk konsultasi biaya dan waktu pengerjaan bisa chat melalui tombol WhatsApp di samping yang sudah kami sertakan","layar_lcd"
 "berapa ya harganya?","Untuk prosedur keluhan hp mati total kami sarankan untuk menghubungi nomor WhatsApp yang sudah kami sertakan. Terima kasih🙏🏻😁","layar_lcd"
@@ -207,9 +211,12 @@ question,answer,topic
 
 
 "baterai saya cepat habis","Baik Kemungkinan masalah ada di baterai atau port cas kak. Disarankan ganti baterai baru atau cek port cas biar normal kembali😊",baterai"
-"hp saya cepat habis baterai","Baterai bisa diganti baru kak, untuk biayanya Rp.100.000 tergantung jenis HP juga kak.","baterai"
-"baterai saya drop kak gabisa di cas","Baik kak, keluhan seperti ini banyak kemungkinan kerusakanya bisa dari port charger, jalur pengisian di mesin atau bahkan baterainya sendiri jadi kita harus observasi terlebih dahulu terkait masalah yang anda alami.","baterai"
+"baterai saya cepat habis","Baterai bisa diganti baru kak, untuk biayanya Rp.100.000 tergantung jenis HP juga kak.","baterai"
+"baterai saya drop kak dan gabisa di cas","Baik kak, keluhan seperti ini banyak kemungkinan kerusakanya bisa dari port charger, jalur pengisian di mesin atau bahkan baterainya sendiri jadi kita harus observasi terlebih dahulu terkait masalah yang anda alami.","baterai"
 "hp saya baterainya drop","Baik kak, untuk konsultasi keluhan lebih lanjut terkait detail masalah dan biaya bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻","baterai"
+"baterai saya tidak bisa nyala","Baterai bisa diganti baru kak, untuk info lebih lanjut bisa klik ikon WhatsApp kami melalui tombol yang kami sediakan","baterai"
+"baterai saya mati","Baik kak, untuk konsultasi keluhan lebih lanjut terkait detail masalah dan biaya bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻","baterai"
+"baterai tidak berfungsi","Baik kak, untuk konsultasi keluhan lebih lanjut terkait detail masalah dan biaya bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻","baterai"
 "baterai saya drop kak","Baik kak, untuk konsultasi keluhan lebih lanjut terkait detail masalah dan biaya bisa chat melalui tombol WhatsApp di samping ya kak terimaksih🙏🏻","baterai"
 "berapa biayanya kak?","Untuk informasi prosedur perbaikan dan biaya bisa langsung menghubungi WhatsApp melalui tombol yang sudah kami sertakan, terima kasih🙏🏻","baterai"
 "berapa ya harganya?","Untuk prosedur keluhan hp mati total kami sarankan untuk menghubungi nomor WhatsApp yang sudah kami sertakan. Terima kasih🙏🏻😁","baterai"
@@ -219,6 +226,7 @@ question,answer,topic
 
 "hp saya tidak bisa dicas","Bisa diperbaiki kak, biasanya masalah di port charger atau IC power, tapi kita tidak bisa pastikan ya kak karena masih banyak kemungkinan nya","charger"
 "tidak bisa di cas kak","Baik Kemungkinan masalah ada di baterai atau port cas. Untuk info lebih lanjut terkait prosedur dan harga bisa chat melalui tombol WhatsApp yang sudah kami sertakan, Terimakasih🙏🏻",charger"
+"hp saya pengecasanya lambat","baik untuk keluhan charger lambat biasa terjadi pada port charger yang kotor atau bahkan harus ganti komponen pada mesin","charger"
 
 
 "tombol hp saya rusak","Baik, Untuk keluhan Tombol hp yang rusak kami perlu observasi terlebih dahulu untuk mengetahui kerusakan ada di bagian dalam atau sekedar di tombol luar maka untuk info lebih lanjut bisa Klik tombol WhatsApp yang sudah kami Sertakan di samping ya kak, terima kasih🙏🏻😁","tombol"
@@ -227,14 +235,20 @@ question,answer,topic
 
 
 "speaker hp saya rusak","baik untuk keluhan speaker rusak biasa terjadi akibat debu atau bahkan faktor usia dari speaker itu sendiri, untuk mengetahui informasi detail dan biaya bisa menghubungi WhatsApp yang sudah kami sertakan.","speaker_hp"
-
-
+"speaker saya tidak bisa hidup","baik untuk keluhan speaker rusak biasa terjadi akibat debu atau bahkan faktor usia dari speaker itu sendiri, untuk mengetahui informasi detail dan biaya bisa menghubungi WhatsApp yang sudah kami sertakan.","speaker_hp"
+"speaker saya mati","baik untuk keluhan speaker rusak biasa terjadi akibat debu atau bahkan faktor usia dari speaker itu sendiri, untuk mengetahui informasi detail dan biaya bisa menghubungi WhatsApp yang sudah kami sertakan.","speaker_hp"
+"speaker saya tidak bunyi","baik untuk keluhan speaker rusak biasa terjadi akibat debu atau bahkan faktor usia dari speaker itu sendiri, untuk mengetahui informasi detail dan biaya bisa menghubungi WhatsApp yang sudah kami sertakan.","speaker_hp"
+"speaker saya tidak fungsi","baik untuk keluhan speaker rusak biasa terjadi akibat debu atau bahkan faktor usia dari speaker itu sendiri, untuk mengetahui informasi detail dan biaya bisa menghubungi WhatsApp yang sudah kami sertakan.","speaker_hp"
 
 "kamera hp saya buram","Bisa kami cek dan perbaiki atau ganti modul kamera 📷","kamera"
-
+"kamera saya mati","Baik kami bisa menangani masalah kamera. Untuk mengetahui kerusakan kami perlu observasi terlebih dahulu","kamera"
+"kamera saya tidak berfungsi","Baik kami bisa menangani masalah kamera. Untuk mengetahui kerusakan kami perlu observasi terlebih dahulu","kamera"
+"kamera saya tidak bisa hidup","Baik kami bisa menangani masalah kamera. Untuk mengetahui kerusakan kami perlu observasi terlebih dahulu","kamera"
+"kameara","Baik kami bisa menangani masalah kamera. Untuk mengetahui kerusakan kami perlu observasi terlebih dahulu","kamera"
 
 
 "fingerprint hp saya tidak berfungsi","Kami bisa ganti fingerprint dengan modul baru 👆","fingerprint"
+"fingerprint saya mati","Kami bisa ganti fingerprint dengan modul baru 👆","fingerprint"
 
 
 
@@ -252,11 +266,15 @@ question,answer,topic
 
 "hp saya hanya stuck logo","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
 "hp saya ke lock","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
+"hp saya terkunci","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
+"hp saya ter kunci","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
+"hp saya kelock","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
+"hp saya kekunci","Itu biasanya perlu flashing, kami bisa bantu 🔄","flashing"
 
 
-"hp saya ","baik untuk keluan masalah software bisa menghubungi teknisi kami melalui tombol WhatspApp yang sudah kami sertakan, Terima Kasih",""
-
-
+"hp saya lag dan lemot","baik untuk keluan masalah software bisa menghubungi teknisi kami melalui tombol WhatspApp yang sudah kami sertakan, Terima Kasih","software_hp"
+"hp saya lag","baik untuk keluan masalah software bisa menghubungi teknisi kami melalui tombol WhatspApp yang sudah kami sertakan, Terima Kasih","software_hp"
+"hp saya lemot","baik untuk keluan masalah software bisa menghubungi teknisi kami melalui tombol WhatspApp yang sudah kami sertakan, Terima Kasih","software_hp"
 
 "hp kena virus","Bisa dibersihkan dan sistem dioptimalkan 💻","software_hp"
 "hp tidak bisa update os","Kami bisa bantu update atau reinstall OS sesuai kebutuhan 🔧","software_hp"
