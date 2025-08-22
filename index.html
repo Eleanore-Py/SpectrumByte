@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SpectrumByte - Service Laptop & Ponsel</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+  @keyframes fadeIn { from { opacity:0; transform:translateY(20px);} to { opacity:1; transform:translateY(0);} }
+  .fade-in { animation:fadeIn 1s ease-out forwards; }
+</style>
+</head>
+<body class="bg-gray-950 text-white flex flex-col min-h-screen">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<!-- Hero Section -->
+<header class="relative h-[80vh] flex flex-col items-center justify-center text-center overflow-hidden fade-in">
+  <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1350&q=80" 
+       alt="Laptop Service" 
+       class="absolute inset-0 w-full h-full object-cover opacity-30"/>
+  <div class="relative z-10 flex flex-col items-center">
+    <h1 class="text-6xl font-extrabold text-cyan-400 drop-shadow-lg animate-bounce [animation-duration:5s]">SPECTRUM.BYTE</h1>
+    <p class="mt-4 text-2xl text-gray-200">Service Laptop & Ponsel</p>
+    <p class="mt-2 text-4xl font-semibold text-gray-200">Solusi Dari Keluhan Anda</p>
+    <div class="mt-20 flex justify-center">
+      <img src="img/Logo.png" alt="Logo" class="w-40 h-40 rounded-full border-4 border-white"/>
+    </div>
+  </div>
+</header>
+
+<!-- Services Section -->
+<section class="mt-12 text-center max-w-4xl mx-auto fade-in">
+  <h2 class="text-2xl font-bold mb-6 text-white">Layanan Kami</h2>
+  <ul class="flex flex-wrap justify-center gap-6">
+    <li class="bg-white/10 backdrop-blur-md text-white p-4 rounded-xl shadow-lg hover:scale-105 hover:bg-cyan-500/20 transition transform duration-300">💻 Service Laptop</li>
+    <li class="bg-white/10 backdrop-blur-md text-white p-4 rounded-xl shadow-lg hover:scale-105 hover:bg-cyan-500/20 transition transform duration-300">📱 Service Smartphone</li>
+    <li class="bg-white/10 backdrop-blur-md text-white p-4 rounded-xl shadow-lg hover:scale-105 hover:bg-cyan-500/20 transition transform duration-300">⚙ Install Ulang & Software</li>
+    <li class="bg-white/10 backdrop-blur-md text-white p-4 rounded-xl shadow-lg hover:scale-105 hover:bg-cyan-500/20 transition transform duration-300">🛠 Upgrade Hardware</li>
+  </ul>
+</section>
+
+<!-- Contact Section -->
+<div class="flex flex-col items-center gap-6 py-12 fade-in">
+  <p class="text-2xl font-semibold">Hubungi Kami di:</p>
+  <div class="flex gap-6 flex-wrap justify-center">
+    <a href="https://wa.me/6283845278538" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-green-400 to-green-600 hover:from-green-500 hover:to-green-700 px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-110">
+      <i class="fab fa-whatsapp text-2xl"></i> WhatsApp
+    </a>
+    <a href="https://instagram.com/spectrum.byte" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-pink-400 via-purple-500 to-pink-600 hover:from-pink-500 hover:via-purple-600 hover:to-pink-700 px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-110">
+      <i class="fab fa-instagram text-2xl"></i> Instagram
+    </a>
+    <a href="https://www.facebook.com/profile.php?id=61579151562230" target="_blank" class="flex items-center gap-2 bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-8 py-4 rounded-2xl shadow-lg transition transform hover:scale-110">
+      <i class="fab fa-facebook text-2xl"></i> Facebook
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-6 text-gray-400 border-t border-gray-700 text-sm fade-in">
+  © <span id="year"></span> SpectrumByte. All rights reserved.
+</footer>
+
+<!-- Chatbot Floating -->
+<div id="chatbot" class="fixed bottom-6 right-6 z-50">
+  <button id="chat-toggle" class="bg-cyan-500 hover:bg-cyan-600 text-white p-4 rounded-full shadow-lg">💬</button>
+
+  <div id="chat-window" class="hidden bg-gray-900 text-white w-[500px] h-[500px] rounded-2xl shadow-xl flex flex-col overflow-hidden">
+    <!-- Header + Close Button -->
+    <div class="bg-cyan-600 p-3 flex items-center">
+        <span class="flex-1 text-center font-bold">SpectrumByte Customer Service</span>
+        <button id="chat-close" class="text-white font-bold px-2 py-1 hover:text-gray-200">✖</button>
+    </div>
+
+    <!-- Chat Messages -->
+    <div id="chat-messages" class="flex-1 p-3 overflow-y-auto space-y-2 text-sm"></div>
+
+    <!-- Input -->
+    <div class="p-3 flex gap-2">
+      <input id="chat-input" type="text" placeholder="Sampaikan keluhan Anda..." class="flex-1 p-2 rounded-lg bg-gray-800 text-white focus:outline-none"/>
+      <button id="chat-send" class="bg-cyan-500 px-4 rounded-lg">Send</button>
+    </div>
+  </div>
+</div>
+
+<!-- PapaParse -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+
+<!-- Chatbot Script -->
+<script>
+// Elements
+const toggleBtn = document.getElementById("chat-toggle");
+const chatWindow = document.getElementById("chat-window");
+const closeBtn = document.getElementById("chat-close");
+const sendBtn = document.getElementById("chat-send");
+const input = document.getElementById("chat-input");
+const messages = document.getElementById("chat-messages");
+
+let dataset = [];
+
+// Load CSV dataset
+Papa.parse("faq_dataset.csv", {
+  download: true,
+  header: true,
+  complete: function(results) { dataset = results.data; console.log("Dataset loaded:", dataset); },
+  error: function(err){ console.error("Gagal load CSV:", err); }
+});
+
+// Bubble chat style function
+function addMessage(text, sender="bot"){
+  const div = document.createElement("div");
+  div.classList.add(sender==="bot" ? "bot-msg" : "user-msg");
+  div.innerText = text;
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
+}
+
+// Cari jawaban terdekat
+function findClosestAnswer(msg){
+  msg = msg.toLowerCase();
+  let bestMatch = {score:0, answer:"Maaf, saya belum paham pertanyaan itu 😊"};
+  dataset.forEach(item=>{
+    const wordsMsg = msg.split(" ");
+    const wordsQ = item.question.toLowerCase().split(" ");
+    const matchCount = wordsMsg.filter(w => wordsQ.includes(w)).length;
+    const score = matchCount / Math.max(wordsMsg.length, wordsQ.length);
+    if(score > bestMatch.score) bestMatch = {score, answer:item.answer};
+  });
+  return bestMatch.answer;
+}
+
+// Kirim pesan
+function sendMessage(){
+  const text = input.value.trim();
+  if(!text) return;
+
+  addMessage(text, "user");
+
+  setTimeout(()=>{
+    const reply = findClosestAnswer(text);
+    addMessage(reply, "bot");
+  },300);
+
+  input.value="";
+}
+
+// Event listeners
+sendBtn.addEventListener("click", sendMessage);
+input.addEventListener("keypress",(e)=>{ if(e.key==="Enter") sendMessage(); });
+toggleBtn.addEventListener("click", ()=>{
+  chatWindow.classList.toggle("hidden");
+
+  // Sambutan otomatis
+  if(!chatWindow.classList.contains("hidden") && messages.innerHTML.trim() === ""){
+    const greeting = dataset.find(item => item.topic && item.topic.toLowerCase() === "sapa");
+    if(greeting) addMessage(greeting.answer, "bot");
+  }
+});
+closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
+
+</script>
+
+<!-- Bubble Chat CSS -->
+<style>
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+/* User bubble (kanan) */
+.user-msg {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #019bac, #019bac);
+  color: rgb(255, 255, 255);
+  padding: 10px 14px;
+  border-radius: 18px 18px 0 18px;
+  max-width: 75%;
+  word-wrap: break-word;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Bot bubble (kiri) */
+.bot-msg {
+  align-self: flex-start;
+  background-color: #3e4041;
+  color: #e0e0e0;
+  padding: 10px 14px;
+  border-radius: 18px 18px 18px 0;
+  max-width: 75%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0; transform: translateY(10px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+</style>
+
+
+
+</body>
+</html>
