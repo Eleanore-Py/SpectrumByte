@@ -56,11 +56,31 @@
   }
 </style>
 
-    <p class="mt-4 text-2xl text-gray-200">Service Laptop & Ponsel</p>
-    <p class="mt-2 text-4xl font-semibold text-gray-200">Solusi Dari Keluhan Anda</p>
+       <p class="mt-10 text-2xl text-gray-200 animate-bounce-slow glow-text">
+  Service Laptop & Ponsel
+</p>
+<p class="mt-4 text-4xl font-semibold text-gray-200 animate-bounce-slow glow-text">
+  Solusi Dari Keluhan Anda
+</p>
+
+<style>
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px) scale(1.02); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 4s infinite ease-in-out;
+}
+.glow-text {
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6), 
+               0 0 15px rgba(0, 255, 255, 0.4);
+}
+</style>
+
+
         <div class="mt-20 flex justify-center">
   <img src="img/Logo.png" alt="Logo" 
-       class="w-40 h-40 rounded-full border-4 border-white 
+       class="w-[165px] h-[165px] rounded-full border-4 border-white 
               animate-bounce-slow shadow-lg shadow-cyan-500/50"/>
 </div>
 
