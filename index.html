@@ -58,9 +58,23 @@
 
     <p class="mt-4 text-2xl text-gray-200">Service Laptop & Ponsel</p>
     <p class="mt-2 text-4xl font-semibold text-gray-200">Solusi Dari Keluhan Anda</p>
-    <div class="mt-20 flex justify-center">
-      <img src="img/Logo.png" alt="Logo" class="w-40 h-40 rounded-full border-4 border-white"/>
-    </div>
+        <div class="mt-20 flex justify-center">
+  <img src="img/Logo.png" alt="Logo" 
+       class="w-40 h-40 rounded-full border-4 border-white 
+              animate-bounce-slow shadow-lg shadow-cyan-500/50"/>
+</div>
+
+<!-- Custom Animation -->
+<style>
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px) scale(1.05); }
+}
+.animate-bounce-slow {
+  animation: bounce-slow 4s infinite ease-in-out;
+}
+</style>
+
   </div>
 </header>
 
