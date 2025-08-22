@@ -134,8 +134,7 @@
 <div id="chatbot" class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2">
 
   <!-- Label Customer Service -->
-  <div class="bg-cyan-600 text-white text-sm font-bold px-3 py-1 rounded-lg shadow-lg 
-              animate-pulse relative">
+  <div class="bg-cyan-600 text-white text-sm font-bold px-3 py-1 rounded-lg shadow-lg animate-pulse relative">
     <span class="drop-shadow-[0_0_8px_#22d3ee] animate-bounce [animation-duration:3s]">
       SpectrumByte Customer Service
     </span>
@@ -153,10 +152,13 @@
             w-[500px] h-[500px] 
             max-w-[90vw] max-h-[70vh] 
             rounded-2xl shadow-xl 
-            flex flex-col overflow-hidden">
+            flex flex-col overflow-hidden
+            opacity-0 translate-y-4 transition-all duration-300 ease-out">
     <!-- Header + Close Button -->
     <div class="bg-cyan-600 p-3 flex items-center">
-        <span class="flex-1 text-center font-bold rounded-full shadow-lg animate-bounce [animation-duration:7s]">SpectrumByte Customer Service</span>
+        <span class="flex-1 text-center font-bold rounded-full shadow-lg animate-bounce [animation-duration:7s]">
+          SpectrumByte Customer Service
+        </span>
         <button id="chat-close" class="text-white font-bold px-2 py-1 hover:text-gray-200">✖</button>
     </div>
 
@@ -170,8 +172,6 @@
     </div>
   </div>
 </div>
-
-
 
 <!-- PapaParse -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
@@ -230,14 +230,26 @@ function sendMessage(){
 // Event
 sendBtn.addEventListener("click", sendMessage);
 input.addEventListener("keypress", e=>{ if(e.key==="Enter") sendMessage(); });
+
 toggleBtn.addEventListener("click", ()=>{
-  chatWindow.classList.toggle("hidden");
-  if(!chatWindow.classList.contains("hidden") && messages.innerHTML.trim()===""){
-    const greeting = dataset.find(i=> i.topic && i.topic.toLowerCase()==="sapa");
-    if(greeting) addMessage(greeting.answer,"bot");
+  if(chatWindow.classList.contains("hidden")){
+    chatWindow.classList.remove("hidden");
+    setTimeout(()=>{
+      chatWindow.classList.remove("opacity-0","translate-y-4");
+      input.focus(); // auto fokus pas buka
+    },10);
+
+    if(messages.innerHTML.trim()===""){
+      const greeting = dataset.find(i=> i.topic && i.topic.toLowerCase()==="sapa");
+      if(greeting) addMessage(greeting.answer,"bot");
+    }
   }
 });
-closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
+
+closeBtn.addEventListener("click", ()=>{
+  chatWindow.classList.add("opacity-0","translate-y-4");
+  setTimeout(()=> chatWindow.classList.add("hidden"),300);
+});
 </script>
 
 <!-- Bubble Chat CSS -->
@@ -281,5 +293,5 @@ closeBtn.addEventListener("click", ()=> chatWindow.classList.add("hidden"));
   to {opacity: 1; transform: translateY(0);}
 }
 </style>
-</body>
+
 </html>
