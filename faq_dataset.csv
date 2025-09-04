@@ -15,7 +15,7 @@ question,answer,topic
 "dimana alamat service?","Service center kami ada di Jl. Arjuno NO. 67, Sisir Kota Batu","lokasi"
 "bisa share alamat toko","Tentu kak, alamat kami: Jl. Arjuno NO. 67, Sisir Kota Batu","lokasi"
 "baik kak lokasi dimana?","Kami berlokasi di Jl. Arjuno NO. 67, Sisir Kota Batu kak","lokasi"
-
+"apakah hp bisa di kirim?","tingal kirim aja kak ke https://maps.app.goo.gl/9DotEHv8pXzHExzr5","lokasi"
 
 
 "apakah bisa menerima layanan luar kota?","Bisa banget kak tingal kirim aja ke https://maps.app.goo.gl/9DotEHv8pXzHExzr5","Link_Lokasi_Pengiriman"
@@ -26,8 +26,8 @@ question,answer,topic
 "apakah hp yang akan di service bisa di kirim?","Bisa banget kak tingal kirim aja ke https://maps.app.goo.gl/9DotEHv8pXzHExzr5","Link_Lokasi_Pengiriman"
 
 
-"bisakah pengambilanya melalui pengiriman","bisa kak, bagi yang perangkatnya dirasa sudah selesai bisa konformasi atau menanyakan melalui tombol WhatsApp yang sudah kami sertakan","pengambilan"
-"jika sudah apakah bisa di kirim?","bisa kak, bagi yang perangkatnya dirasa sudah selesai bisa konformasi atau menanyakan melalui tombol WhatsApp yang sudah kami sertakan","pengambilan"
+"bisakah pengambilanya melalui pengiriman","bisa kak, bagi yang perangkatnya dirasa sudah selesai bisa konformasi atau menanyakan melalui tombol WhatsApp yang sudah kami sertakan","Pengambilan"
+"jika sudah apakah bisa di kirim?","bisa kak, bagi yang perangkatnya dirasa sudah selesai bisa konformasi atau menanyakan melalui tombol WhatsApp yang sudah kami sertakan","Pengambilan"
 
 "bolehkah saya minta contact personya","Baik untuk nomor WhatsApp sudah kami sertakan di tombol WhatsApp","No_WA"
 "ada no wa nya","baik untuk nomor WhatsApp sudah kami sertakan di tombol WhatsApp","No_WA"
