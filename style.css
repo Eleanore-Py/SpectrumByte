@@ -193,6 +193,91 @@ footer {
   animation: fadeInUp 0.4s ease-out;
 }
 
+/* ===== MODAL DETAIL RESPONSIF UNTUK HP ===== */
+#detailModal {
+  display: none;
+}
+
+#detailModal.active {
+  display: flex;
+}
+
+/* Atur ukuran modal di HP */
+@media (max-width: 768px) {
+  #detailModal .bg-gray-900 {
+    padding: 1rem;
+  }
+
+  #detailModal .text-2xl {
+    font-size: 1.5rem;
+  }
+
+  #detailModal .md\:flex {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  #detailModal #modalImage {
+    width: 100%;
+    height: auto;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 1rem;
+  }
+
+  #detailModal #priceList {
+    max-height: 40vh;
+    padding-right: 0;
+  }
+
+  #detailModal ul.space-y-3 {
+    gap: 0.5rem;
+  }
+
+  #detailModal li.bg-gray-800 {
+    padding: 0.75rem;
+  }
+
+  #detailModal span.font-semibold {
+    font-size: 0.95rem;
+  }
+
+  #detailModal span.text-cyan-400 {
+    font-size: 0.95rem;
+  }
+
+  #detailModal p.text-gray-300 {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  #detailModal a.inline-block {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+
+  #detailModal button.bg-gray-700 {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ==== TOMBOL PESAN SEKARANG DI MOBILE ==== */
+@media (max-width: 480px) {
+  #detailModal a.inline-block {
+    width: 100%;
+    text-align: center;
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  #detailModal .flex.justify-between.items-center.mb-1 {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
 /* Area konten utama dalam modal */
 #detailModal .md\:flex {
   align-items: flex-start;
