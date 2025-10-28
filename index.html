@@ -104,28 +104,35 @@
 </section>
 
 <!-- ===================== MODAL DETAIL HARGA ===================== -->
-<div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50">
-  <div class="bg-gray-900 text-white rounded-2xl shadow-2xl w-[90%] md:w-[900px] p-6 relative animate-fadeInUp">
-    <button onclick="closeDetails()" class="absolute top-4 right-6 text-gray-400 hover:text-white text-2xl font-bold">&times;</button>
-    <h2 id="modalTitle" class="text-2xl font-bold mb-4 text-center"></h2>
+<div id="detailModal" class="hidden fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4">
+  <div class="bg-gray-900 text-white rounded-2xl shadow-2xl w-full max-w-[90vw] md:max-w-[700px] h-[90vh] md:h-[auto] max-h-[90vh] flex flex-col relative">
+    <!-- Header Modal -->
+    <div class="flex justify-between items-center border-b border-gray-700 p-4">
+      <h2 id="modalTitle" class="text-xl md:text-2xl font-bold text-center flex-1"></h2>
+      <button onclick="closeDetails()" class="text-gray-400 hover:text-white text-2xl font-bold ml-4">&times;</button>
+    </div>
 
-    <div class="md:flex items-start gap-6">
+    <!-- Body Modal (Gambar & Daftar Harga) -->
+    <div class="flex-1 overflow-hidden flex flex-col md:flex-row p-4 gap-4">
       <!-- Gambar -->
-      <div class="md:w-1/2 w-full mb-4 md:mb-0">
-        <img id="modalImage" src="" alt="Service illustration" class="rounded-xl shadow-md w-full object-cover">
+      <div class="md:w-2/5 flex-shrink-0">
+        <img id="modalImage" src="" alt="Ilustrasi Layanan" class="rounded-xl shadow-md w-full h-auto max-h-[200px] md:max-h-[300px] object-contain">
       </div>
 
       <!-- Detail harga -->
-      <div class="md:w-1/2 w-full">
-        <ul id="priceList" class="space-y-3 text-sm"></ul>
-        <p id="priceNote" class="text-gray-400 text-xs mt-4 italic hidden">
+      <div class="md:w-3/5 flex-1 overflow-hidden flex flex-col">
+        <ul id="priceList" class="flex-1 overflow-y-auto space-y-3 text-sm p-1 pr-2"></ul>
+        <p id="priceNote" class="text-gray-400 text-xs mt-2 italic hidden text-center">
           *Harga menyesuaikan dengan jenis kerusakan atau tipe perangkat.
         </p>
       </div>
     </div>
 
-    <div class="text-center mt-6">
-      <button onclick="closeDetails()" class="bg-gray-700 px-5 py-2 rounded-lg mr-3 hover:bg-gray-600 transition">Tutup</button>
+    <!-- Footer Modal -->
+    <div class="border-t border-gray-700 p-4 text-center">
+      <button onclick="closeDetails()" class="bg-gray-700 text-white px-5 py-2 rounded-lg hover:bg-gray-600 transition">
+        Tutup
+      </button>
     </div>
   </div>
 </div>
@@ -191,15 +198,15 @@
 
     list.innerHTML = data.prices.map(
       (p) => `
-        <li class="bg-gray-800 p-3 rounded-lg shadow-sm hover:bg-gray-700 transition">
-          <div class="flex justify-between items-center mb-1">
-            <span class="font-semibold">${p.jenis}</span>
-            <span class="text-cyan-400 font-bold">${p.harga}</span>
+        <li class="bg-gray-800 p-3 rounded-lg shadow-sm hover:bg-gray-700 transition flex flex-col gap-2">
+          <div class="flex justify-between items-start">
+            <span class="font-semibold text-xs sm:text-sm">${p.jenis}</span>
+            <span class="text-cyan-400 font-bold text-xs sm:text-sm">${p.harga}</span>
           </div>
-          <p class="text-gray-300 text-sm mb-2">${p.desc}</p>
-          <a href="https://wa.me/6283845278538?text=Halo, saya ingin ${encodeURIComponent(p.jenis)}."
+          <p class="text-gray-300 text-xs mb-2">${p.desc}</p>
+          <a href="https://wa.me/6283845278538?text=Halo%2C%20saya%20ingin%20${encodeURIComponent(p.jenis)}."
              target="_blank"
-             class="inline-block bg-cyan-500 text-white text-xs px-3 py-1 rounded-md hover:bg-cyan-400 transition">
+             class="w-full bg-cyan-500 text-white text-center text-xs px-3 py-2 rounded-md hover:bg-cyan-400 transition">
             Pesan Sekarang
           </a>
         </li>`
@@ -209,11 +216,18 @@
     const adaHargaMenyesuaikan = data.prices.some(p => p.desc.toLowerCase().includes("harga menyesuaikan"));
     note.classList.toggle("hidden", !adaHargaMenyesuaikan);
 
+    // Tampilkan modal
     modal.classList.remove("hidden");
+    // Pastikan overflow hidden di body aktif jika modal terbuka (opsional, tergantung layout utama)
+    // document.body.classList.add('overflow-hidden');
   }
 
   function closeDetails() {
-    document.getElementById("detailModal").classList.add("hidden");
+    const modal = document.getElementById("detailModal");
+    // Sembunyikan modal
+    modal.classList.add("hidden");
+    // Hapus overflow hidden dari body jika sebelumnya ditambahkan
+    // document.body.classList.remove('overflow-hidden');
   }
 </script>
 
